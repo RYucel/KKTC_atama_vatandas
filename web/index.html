@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KKTC Resmî Gazete · Karar Arama</title>
+<meta name="description" content="KKTC Resmî Gazete kararlarında atama, görevden alma, yurttaşlığa alınma ve yurttaşlıktan çıkarılma kararlarını yıllara göre arayın." />
+<link rel="preload" href="data/summary.json" as="fetch" crossorigin="anonymous" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">RG</div>
+    <div class="brand-text">
+      <h1>KKTC Resmî Gazete</h1>
+      <p>Karar Arama &amp; İstatistik</p>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <a id="srcLink" class="ghost-btn" href="https://basimevi.gov.ct.tr/" target="_blank" rel="noopener">Kaynak ↗</a>
+    <button id="themeToggle" class="icon-btn" title="Tema değiştir" aria-label="Tema değiştir">◐</button>
+  </div>
+</header>
+
+<main>
+  <!-- ========================= DASHBOARD ========================= -->
+  <section class="dashboard">
+    <div class="stat-grid" id="statGrid"><!-- stat cards injected --></div>
+
+    <div class="panel chart-panel">
+      <div class="panel-head">
+        <h2>Yıllara Göre Dağılım</h2>
+        <div class="chart-legend" id="chartLegend"></div>
+      </div>
+      <div class="chart-wrap"><div id="chart" class="chart"></div></div>
+      <p class="muted small" id="metaLine"></p>
+    </div>
+  </section>
+
+  <!-- ========================= SEARCH ========================= -->
+  <section class="panel search-panel">
+    <div class="search-row">
+      <div class="search-input">
+        <span class="search-ico">⌕</span>
+        <input id="q" type="search" autocomplete="off"
+               placeholder="Karar metni veya karar sayısı ara… (ör. “müsteşar”, “Ü(K-I) 2497-2025”)" />
+        <button id="clearQ" class="clear-q" title="Temizle" hidden>×</button>
+      </div>
+    </div>
+
+    <div class="filters">
+      <div class="filter-group">
+        <label class="filter-label">Kategori</label>
+        <div class="chips" id="catChips"></div>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">Yıl aralığı</label>
+        <div class="range">
+          <select id="yearFrom"></select>
+          <span class="dash">–</span>
+          <select id="yearTo"></select>
+        </div>
+      </div>
+      <div class="filter-group grow">
+        <label class="filter-label">&nbsp;</label>
+        <div class="result-meta">
+          <span id="resultCount" class="result-count">—</span>
+          <button id="exportBtn" class="ghost-btn" disabled>CSV indir</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="loadState" class="load-state">Veriler yükleniyor…</div>
+
+    <div class="table-wrap" hidden id="tableWrap">
+      <table class="results">
+        <thead>
+          <tr>
+            <th class="c-date sortable" data-sort="iso">Tarih</th>
+            <th class="c-issue">Sayı</th>
+            <th class="c-kno">Karar No</th>
+            <th class="c-ek">Ek</th>
+            <th class="c-cat">Kategori</th>
+            <th class="c-desc">Karar Metni</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <button id="moreBtn" class="more-btn" hidden>Daha fazla göster</button>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Veriler <a href="https://basimevi.gov.ct.tr/" target="_blank" rel="noopener">basimevi.gov.ct.tr</a>
+       açık arşivinden derlenmiştir. Bu uygulama resmî değildir.
+       · <a href="https://github.com/RYucel/KKTC_atama_vatandas" target="_blank" rel="noopener">GitHub ↗</a></p>
+  </footer>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

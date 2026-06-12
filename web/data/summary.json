@@ -1,0 +1,222 @@
+{
+  "generated": "2026-06-12T11:39:37Z",
+  "source": "https://basimevi.gov.ct.tr",
+  "categories": [
+    "atama",
+    "gorevden_alma",
+    "yurttasliga_alinma",
+    "yurttasliktan_cikarma"
+  ],
+  "years": {
+    "2006": {
+      "issues": 219,
+      "decisions": 3494,
+      "counts": {
+        "atama": 152,
+        "gorevden_alma": 37,
+        "yurttasliga_alinma": 2,
+        "yurttasliktan_cikarma": 2
+      }
+    },
+    "2007": {
+      "issues": 228,
+      "decisions": 3711,
+      "counts": {
+        "atama": 91,
+        "gorevden_alma": 10,
+        "yurttasliga_alinma": 9,
+        "yurttasliktan_cikarma": 0
+      }
+    },
+    "2008": {
+      "issues": 223,
+      "decisions": 3943,
+      "counts": {
+        "atama": 62,
+        "gorevden_alma": 4,
+        "yurttasliga_alinma": 1,
+        "yurttasliktan_cikarma": 1
+      }
+    },
+    "2009": {
+      "issues": 222,
+      "decisions": 4073,
+      "counts": {
+        "atama": 186,
+        "gorevden_alma": 86,
+        "yurttasliga_alinma": 18,
+        "yurttasliktan_cikarma": 4
+      }
+    },
+    "2010": {
+      "issues": 221,
+      "decisions": 3369,
+      "counts": {
+        "atama": 107,
+        "gorevden_alma": 23,
+        "yurttasliga_alinma": 15,
+        "yurttasliktan_cikarma": 1
+      }
+    },
+    "2011": {
+      "issues": 221,
+      "decisions": 3456,
+      "counts": {
+        "atama": 93,
+        "gorevden_alma": 22,
+        "yurttasliga_alinma": 36,
+        "yurttasliktan_cikarma": 6
+      }
+    },
+    "2012": {
+      "issues": 215,
+      "decisions": 3480,
+      "counts": {
+        "atama": 89,
+        "gorevden_alma": 19,
+        "yurttasliga_alinma": 180,
+        "yurttasliktan_cikarma": 3
+      }
+    },
+    "2013": {
+      "issues": 207,
+      "decisions": 3282,
+      "counts": {
+        "atama": 119,
+        "gorevden_alma": 69,
+        "yurttasliga_alinma": 143,
+        "yurttasliktan_cikarma": 2
+      }
+    },
+    "2014": {
+      "issues": 255,
+      "decisions": 3322,
+      "counts": {
+        "atama": 86,
+        "gorevden_alma": 36,
+        "yurttasliga_alinma": 1,
+        "yurttasliktan_cikarma": 5
+      }
+    },
+    "2015": {
+      "issues": 188,
+      "decisions": 3071,
+      "counts": {
+        "atama": 77,
+        "gorevden_alma": 41,
+        "yurttasliga_alinma": 7,
+        "yurttasliktan_cikarma": 1
+      }
+    },
+    "2016": {
+      "issues": 176,
+      "decisions": 3522,
+      "counts": {
+        "atama": 170,
+        "gorevden_alma": 96,
+        "yurttasliga_alinma": 162,
+        "yurttasliktan_cikarma": 1
+      }
+    },
+    "2017": {
+      "issues": 213,
+      "decisions": 4852,
+      "counts": {
+        "atama": 45,
+        "gorevden_alma": 8,
+        "yurttasliga_alinma": 1734,
+        "yurttasliktan_cikarma": 1
+      }
+    },
+    "2018": {
+      "issues": 190,
+      "decisions": 2922,
+      "counts": {
+        "atama": 132,
+        "gorevden_alma": 83,
+        "yurttasliga_alinma": 16,
+        "yurttasliktan_cikarma": 4
+      }
+    },
+    "2019": {
+      "issues": 187,
+      "decisions": 2795,
+      "counts": {
+        "atama": 98,
+        "gorevden_alma": 71,
+        "yurttasliga_alinma": 168,
+        "yurttasliktan_cikarma": 0
+      }
+    },
+    "2020": {
+      "issues": 239,
+      "decisions": 2503,
+      "counts": {
+        "atama": 40,
+        "gorevden_alma": 13,
+        "yurttasliga_alinma": 88,
+        "yurttasliktan_cikarma": 1
+      }
+    },
+    "2021": {
+      "issues": 283,
+      "decisions": 3160,
+      "counts": {
+        "atama": 150,
+        "gorevden_alma": 77,
+        "yurttasliga_alinma": 231,
+        "yurttasliktan_cikarma": 2
+      }
+    },
+    "2022": {
+      "issues": 298,
+      "decisions": 3612,
+      "counts": {
+        "atama": 171,
+        "gorevden_alma": 95,
+        "yurttasliga_alinma": 402,
+        "yurttasliktan_cikarma": 0
+      }
+    },
+    "2023": {
+      "issues": 269,
+      "decisions": 3953,
+      "counts": {
+        "atama": 213,
+        "gorevden_alma": 32,
+        "yurttasliga_alinma": 499,
+        "yurttasliktan_cikarma": 0
+      }
+    },
+    "2024": {
+      "issues": 264,
+      "decisions": 4352,
+      "counts": {
+        "atama": 146,
+        "gorevden_alma": 33,
+        "yurttasliga_alinma": 741,
+        "yurttasliktan_cikarma": 0
+      }
+    },
+    "2025": {
+      "issues": 260,
+      "decisions": 3978,
+      "counts": {
+        "atama": 123,
+        "gorevden_alma": 43,
+        "yurttasliga_alinma": 526,
+        "yurttasliktan_cikarma": 0
+      }
+    },
+    "2026": {
+      "issues": 107,
+      "decisions": 1839,
+      "counts": {
+        "atama": 29,
+        "gorevden_alma": 18,
+        "yurttasliga_alinma": 147,
+        "yurttasliktan_cikarma": 0
+      }
+    }
+  }
+}

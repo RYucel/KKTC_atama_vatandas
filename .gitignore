@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node (test tooling)
+node_modules/
+package.json
+package-lock.json
+
+# Scraper HTML cache (large, regenerated on demand)
+cache/*.html
+
+# OS / editor
+.DS_Store
+Thumbs.db
