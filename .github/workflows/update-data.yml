@@ -1,0 +1,50 @@
+name: Update gazette data
+
+on:
+  schedule:
+    # Her gece 03:00 UTC (Kıbrıs saatiyle 05:00/06:00)
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml pymupdf
+
+      - name: Run scraper (fresh fetch)
+        run: python scraper.py --refresh
+
+      - name: Commit & push if data changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add web/data cache/pdf_dates.json
+          # summary.json'daki zaman damgası her koşuda değişir; yalnızca
+          # gerçek veri (decisions.json) değiştiyse commit at.
+          if ! git diff --cached --quiet -- web/data/decisions.json cache/pdf_dates.json; then
+            git commit -m "data: otomatik veri güncellemesi ($(date -u +%Y-%m-%d))"
+            git push
+            # GITHUB_TOKEN ile yapılan push, push-tetikli workflow'ları
+            # çalıştırmaz; Pages dağıtımını elle tetikle.
+            gh workflow run deploy-pages.yml --ref main
+          else
+            echo "Veri değişmedi, commit atlanıyor."
+          fi
