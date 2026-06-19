@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-18T08:08:32Z",
+  "generated": "2026-06-19T08:32:18Z",
   "source": "https://basimevi.gov.ct.tr",
   "categories": [
     "atama",
@@ -209,7 +209,7 @@
       }
     },
     "2026": {
-      "issues": 111,
+      "issues": 112,
       "decisions": 1889,
       "counts": {
         "atama": 30,
