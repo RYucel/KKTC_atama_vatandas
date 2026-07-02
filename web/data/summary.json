@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-01T07:12:10Z",
+  "generated": "2026-07-02T05:13:15Z",
   "source": "https://basimevi.gov.ct.tr",
   "categories": [
     "atama",
@@ -128,36 +128,6 @@
         "yurttasliktan_cikarma": 1
       }
     },
-    "2018": {
-      "issues": 190,
-      "decisions": 2922,
-      "counts": {
-        "atama": 132,
-        "gorevden_alma": 83,
-        "yurttasliga_alinma": 16,
-        "yurttasliktan_cikarma": 4
-      }
-    },
-    "2019": {
-      "issues": 187,
-      "decisions": 2795,
-      "counts": {
-        "atama": 98,
-        "gorevden_alma": 71,
-        "yurttasliga_alinma": 168,
-        "yurttasliktan_cikarma": 0
-      }
-    },
-    "2020": {
-      "issues": 239,
-      "decisions": 2503,
-      "counts": {
-        "atama": 40,
-        "gorevden_alma": 13,
-        "yurttasliga_alinma": 88,
-        "yurttasliktan_cikarma": 1
-      }
-    },
     "2021": {
       "issues": 283,
       "decisions": 3160,
@@ -209,8 +179,8 @@
       }
     },
     "2026": {
-      "issues": 119,
-      "decisions": 2026,
+      "issues": 120,
+      "decisions": 2031,
       "counts": {
         "atama": 36,
         "gorevden_alma": 20,
