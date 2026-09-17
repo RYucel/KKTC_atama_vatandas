@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-16T08:18:46Z",
+  "generated": "2026-09-17T08:24:58Z",
   "source": "https://basimevi.gov.ct.tr",
   "categories": [
     "atama",
@@ -209,11 +209,11 @@
       }
     },
     "2026": {
-      "issues": 174,
-      "decisions": 3062,
+      "issues": 176,
+      "decisions": 3117,
       "counts": {
-        "atama": 59,
-        "gorevden_alma": 31,
+        "atama": 61,
+        "gorevden_alma": 33,
         "yurttasliga_alinma": 391,
         "yurttasliktan_cikarma": 0
       }
