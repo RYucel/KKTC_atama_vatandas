@@ -10,6 +10,7 @@ package-lock.json
 
 # Scraper HTML cache (large, regenerated on demand)
 cache/*.html
+cache/*.pem
 
 # OS / editor
 .DS_Store

@@ -30,6 +30,13 @@ jobs:
       - name: Run scraper (fresh fetch)
         run: python scraper.py --refresh
 
+      - name: Cross-check against mevzuatkibris.com RSS
+        # Yalnızca rapor üretir (Actions özetinde görünür); hiçbir zaman
+        # güncellemeyi bozmaz.
+        if: always()
+        continue-on-error: true
+        run: python crosscheck.py
+
       - name: Commit & push if data changed
         env:
           GH_TOKEN: ${{ github.token }}
