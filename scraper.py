@@ -440,6 +440,32 @@ def fetch_year(year, session, use_cache=True):
     return home, "home"
 
 
+def ca_bundle():
+    """Return a CA bundle path that also trusts the certs in certs/*.pem.
+
+    basimevi.gov.ct.tr serves its certificate without the intermediate
+    (since the 2026-10-13 renewal). Browsers fetch the missing intermediate
+    themselves, Python does not, so we ship the public Let's Encrypt chain.
+    """
+    import certifi
+
+    base = os.environ.get("REQUESTS_CA_BUNDLE") or certifi.where()
+    cert_dir = os.path.join(HERE, "certs")
+    extra = sorted(f for f in os.listdir(cert_dir) if f.endswith(".pem")) \
+        if os.path.isdir(cert_dir) else []
+    if not extra:
+        return base
+    path = os.path.join(CACHE_DIR, "ca-bundle.pem")
+    os.makedirs(CACHE_DIR, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as out:
+        with open(base, encoding="utf-8") as f:
+            out.write(f.read())
+        for name in extra:
+            with open(os.path.join(cert_dir, name), encoding="utf-8") as f:
+                out.write("\n" + f.read())
+    return path
+
+
 # A year whose fresh scrape yields fewer than this fraction of the previously
 # published decisions is treated as a failed/truncated fetch.
 MIN_KEEP_RATIO = 0.9
@@ -467,6 +493,8 @@ def main():
 
     os.makedirs(DATA_DIR, exist_ok=True)
     session = requests.Session()
+    # requests prefers REQUESTS_CA_BUNDLE over session.verify, so set it here.
+    os.environ["REQUESTS_CA_BUNDLE"] = ca_bundle()
 
     all_records = []
     summary = {
