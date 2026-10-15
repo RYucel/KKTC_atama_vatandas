@@ -99,6 +99,7 @@ Then open <http://localhost:8000>.
 ResmiGazete/
 ├── scraper.py          # fetch + parse + classify  →  web/data/*.json
 ├── crosscheck.py       # compare recent records with mevzuatkibris.com RSS (report only)
+├── crosscheck-ignore.json  # known source typos the cross-check should skip
 ├── certs/              # CA certs missing from basimevi.gov.ct.tr's TLS chain
 ├── cache/              # cached HTML pages (auto-created, safe to delete)
 ├── web/
