@@ -14,7 +14,7 @@ night** by a GitHub Actions workflow.
 
 It lets you:
 
-- See **per-year totals** for the four tracked decision categories
+- See **per-year totals** for the five tracked decision categories
 - **Search** the full text of ~70,000 decisions and decision numbers
 - **Filter** by category and year range
 - Open the **source PDF** for any gazette issue
@@ -28,6 +28,7 @@ It lets you:
 | `gorevden_alma` | Görevden Almalar | Dismissal decrees |
 | `yurttasliga_alinma` | Yurttaşlığa Alınma | Citizenship granted |
 | `yurttasliktan_cikarma` | Yurttaşlıktan Çıkarılma | Citizenship revoked / cancelled |
+| `sozlesmeli` | Sözleşmeli Personel | Contract staff hired outside the regular cadre, or their contracts renewed / extended (not cancellations, leases or procurement contracts) |
 
 ---
 
@@ -97,6 +98,8 @@ Then open <http://localhost:8000>.
 ```text
 ResmiGazete/
 ├── scraper.py          # fetch + parse + classify  →  web/data/*.json
+├── crosscheck.py       # compare recent records with mevzuatkibris.com RSS (report only)
+├── certs/              # CA certs missing from basimevi.gov.ct.tr's TLS chain
 ├── cache/              # cached HTML pages (auto-created, safe to delete)
 ├── web/
 │   ├── index.html      # app shell

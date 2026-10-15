@@ -10,6 +10,7 @@ classifies each decision into searchable categories:
     gorevden_alma         - dismissal decrees
     yurttasliga_alinma    - granted TRNC citizenship
     yurttasliktan_cikarma - revoked / lost TRNC citizenship
+    sozlesmeli            - contract staff hired / renewed outside the cadre
 
 Output (written into web/data/):
     decisions.json  - flat list of every decision record
@@ -91,7 +92,38 @@ def classify(text_upper):
         elif any(m in t for m in ("ALINMA", "VERİLME", "VERİLECEK", "KABUL")):
             cats.append("yurttasliga_alinma")
 
+    if is_contract_staff(t):
+        cats.append("sozlesmeli")
+
     return cats
+
+
+# Contract staff ("sözleşmeli personel"): hiring someone outside the regular
+# civil-service cadre, or renewing/extending such a contract. Leases ("icar",
+# "kira"), procurement, company contracts and laws mentioning contract staff
+# also contain "SÖZLEŞME", so those are excluded first.
+CONTRACT_EXCLUDE = (
+    "İCAR", "KİRA", "ARAZİ", "İHALE", "YEM", "YASASI", "TÜZÜĞ", "HİZMET ALIM",
+    "HİZMETLERİ SÖZLEŞ", "DÖVİZ", "GSM", "PROTOKOL", "ANLAŞMA", "SATIŞ",
+    "MAL ALIM", "YAPIM", "LİSANS", "İMTİYAZ", "FİNANSMAN", "KREDİ", "LTD",
+    "A.Ş", "ŞTİ", "ŞİRKET", "TEDARİK", "PETROL", "BAKIM", "DEPOLAMA", "MADDE",
+)
+# Spelling in the listings is noisy ("SÖZLEŞMELi", "SÖZLEŞME PERSONEL",
+# "POERSONEL", "SATATÜ", "SÖZLEŞMELERİNİ YENİLENMESİ"), so match loosely.
+CONTRACT_RE = re.compile(
+    r"SÖZLEŞME\w*\s*(PE?R|POER|S?T?ATÜ|SATATÜ|OLARAK|İSTİHDAM|ÇALIŞ|GÖREV"
+    r"|UZMAN|DOKTOR|HEKİM|DANIŞMAN|RAPORTÖR|SÜRE|YENİLEN|UZATIL)"
+    r"|SÖZLEŞMEL[İI].{0,40}İSTİHDAM")
+# Cancelling / terminating a contract is the opposite of the privilege.
+CONTRACT_END_RE = re.compile(r"SÖZLEŞME\w*\s*(İPTAL|FESH)")
+
+
+def is_contract_staff(t):
+    if "SÖZLEŞME" not in t or any(x in t for x in CONTRACT_EXCLUDE):
+        return False
+    if CONTRACT_END_RE.search(t):
+        return False
+    return CONTRACT_RE.search(t) is not None
 
 
 CATEGORIES = [
@@ -99,6 +131,7 @@ CATEGORIES = [
     "gorevden_alma",
     "yurttasliga_alinma",
     "yurttasliktan_cikarma",
+    "sozlesmeli",
 ]
 
 

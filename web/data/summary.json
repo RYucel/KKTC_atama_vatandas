@@ -5,7 +5,8 @@
     "atama",
     "gorevden_alma",
     "yurttasliga_alinma",
-    "yurttasliktan_cikarma"
+    "yurttasliktan_cikarma",
+    "sozlesmeli"
   ],
   "years": {
     "2006": {
@@ -15,7 +16,8 @@
         "atama": 152,
         "gorevden_alma": 37,
         "yurttasliga_alinma": 2,
-        "yurttasliktan_cikarma": 2
+        "yurttasliktan_cikarma": 2,
+        "sozlesmeli": 53
       }
     },
     "2007": {
@@ -25,7 +27,8 @@
         "atama": 91,
         "gorevden_alma": 10,
         "yurttasliga_alinma": 9,
-        "yurttasliktan_cikarma": 0
+        "yurttasliktan_cikarma": 0,
+        "sozlesmeli": 81
       }
     },
     "2008": {
@@ -35,7 +38,8 @@
         "atama": 62,
         "gorevden_alma": 4,
         "yurttasliga_alinma": 1,
-        "yurttasliktan_cikarma": 1
+        "yurttasliktan_cikarma": 1,
+        "sozlesmeli": 58
       }
     },
     "2009": {
@@ -45,7 +49,8 @@
         "atama": 186,
         "gorevden_alma": 86,
         "yurttasliga_alinma": 18,
-        "yurttasliktan_cikarma": 4
+        "yurttasliktan_cikarma": 4,
+        "sozlesmeli": 67
       }
     },
     "2010": {
@@ -55,7 +60,8 @@
         "atama": 107,
         "gorevden_alma": 23,
         "yurttasliga_alinma": 15,
-        "yurttasliktan_cikarma": 1
+        "yurttasliktan_cikarma": 1,
+        "sozlesmeli": 81
       }
     },
     "2011": {
@@ -65,7 +71,8 @@
         "atama": 93,
         "gorevden_alma": 22,
         "yurttasliga_alinma": 36,
-        "yurttasliktan_cikarma": 6
+        "yurttasliktan_cikarma": 6,
+        "sozlesmeli": 63
       }
     },
     "2012": {
@@ -75,7 +82,8 @@
         "atama": 89,
         "gorevden_alma": 19,
         "yurttasliga_alinma": 180,
-        "yurttasliktan_cikarma": 3
+        "yurttasliktan_cikarma": 3,
+        "sozlesmeli": 99
       }
     },
     "2013": {
@@ -85,7 +93,8 @@
         "atama": 119,
         "gorevden_alma": 69,
         "yurttasliga_alinma": 143,
-        "yurttasliktan_cikarma": 2
+        "yurttasliktan_cikarma": 2,
+        "sozlesmeli": 77
       }
     },
     "2014": {
@@ -95,7 +104,8 @@
         "atama": 86,
         "gorevden_alma": 36,
         "yurttasliga_alinma": 1,
-        "yurttasliktan_cikarma": 5
+        "yurttasliktan_cikarma": 5,
+        "sozlesmeli": 77
       }
     },
     "2015": {
@@ -105,7 +115,8 @@
         "atama": 77,
         "gorevden_alma": 41,
         "yurttasliga_alinma": 7,
-        "yurttasliktan_cikarma": 1
+        "yurttasliktan_cikarma": 1,
+        "sozlesmeli": 51
       }
     },
     "2016": {
@@ -115,7 +126,8 @@
         "atama": 170,
         "gorevden_alma": 96,
         "yurttasliga_alinma": 162,
-        "yurttasliktan_cikarma": 1
+        "yurttasliktan_cikarma": 1,
+        "sozlesmeli": 60
       }
     },
     "2017": {
@@ -125,7 +137,8 @@
         "atama": 45,
         "gorevden_alma": 8,
         "yurttasliga_alinma": 1734,
-        "yurttasliktan_cikarma": 1
+        "yurttasliktan_cikarma": 1,
+        "sozlesmeli": 97
       }
     },
     "2018": {
@@ -135,7 +148,8 @@
         "atama": 132,
         "gorevden_alma": 83,
         "yurttasliga_alinma": 16,
-        "yurttasliktan_cikarma": 4
+        "yurttasliktan_cikarma": 4,
+        "sozlesmeli": 98
       }
     },
     "2019": {
@@ -145,7 +159,8 @@
         "atama": 98,
         "gorevden_alma": 71,
         "yurttasliga_alinma": 168,
-        "yurttasliktan_cikarma": 0
+        "yurttasliktan_cikarma": 0,
+        "sozlesmeli": 104
       }
     },
     "2020": {
@@ -155,7 +170,8 @@
         "atama": 40,
         "gorevden_alma": 13,
         "yurttasliga_alinma": 88,
-        "yurttasliktan_cikarma": 1
+        "yurttasliktan_cikarma": 1,
+        "sozlesmeli": 92
       }
     },
     "2021": {
@@ -165,7 +181,8 @@
         "atama": 150,
         "gorevden_alma": 77,
         "yurttasliga_alinma": 231,
-        "yurttasliktan_cikarma": 2
+        "yurttasliktan_cikarma": 2,
+        "sozlesmeli": 124
       }
     },
     "2022": {
@@ -175,7 +192,8 @@
         "atama": 171,
         "gorevden_alma": 95,
         "yurttasliga_alinma": 402,
-        "yurttasliktan_cikarma": 0
+        "yurttasliktan_cikarma": 0,
+        "sozlesmeli": 114
       }
     },
     "2023": {
@@ -185,7 +203,8 @@
         "atama": 213,
         "gorevden_alma": 32,
         "yurttasliga_alinma": 499,
-        "yurttasliktan_cikarma": 0
+        "yurttasliktan_cikarma": 0,
+        "sozlesmeli": 130
       }
     },
     "2024": {
@@ -195,7 +214,8 @@
         "atama": 146,
         "gorevden_alma": 33,
         "yurttasliga_alinma": 741,
-        "yurttasliktan_cikarma": 0
+        "yurttasliktan_cikarma": 0,
+        "sozlesmeli": 132
       }
     },
     "2025": {
@@ -205,7 +225,8 @@
         "atama": 123,
         "gorevden_alma": 43,
         "yurttasliga_alinma": 526,
-        "yurttasliktan_cikarma": 0
+        "yurttasliktan_cikarma": 0,
+        "sozlesmeli": 172
       }
     },
     "2026": {
@@ -215,7 +236,8 @@
         "atama": 76,
         "gorevden_alma": 45,
         "yurttasliga_alinma": 735,
-        "yurttasliktan_cikarma": 1
+        "yurttasliktan_cikarma": 1,
+        "sozlesmeli": 152
       }
     }
   }

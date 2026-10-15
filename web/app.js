@@ -9,6 +9,7 @@ const CATS = [
   { key: "gorevden_alma",         label: "Görevden Almalar",      short: "Görevden Alma" },
   { key: "yurttasliga_alinma",    label: "Yurttaşlığa Alınma",    short: "Yurttaşlığa Alınma" },
   { key: "yurttasliktan_cikarma", label: "Yurttaşlıktan Çıkarılma", short: "Yurttaşlıktan Çıkarılma" },
+  { key: "sozlesmeli",            label: "Sözleşmeli Personel",   short: "Sözleşmeli" },
 ];
 const CAT_LABEL = Object.fromEntries(CATS.map(c => [c.key, c]));
 const PAGE = 200; // rows rendered per page

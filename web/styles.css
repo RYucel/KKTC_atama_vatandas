@@ -14,6 +14,7 @@
   --c-gorevden_alma: #e0671d;
   --c-yurttasliga_alinma: #11a36b;
   --c-yurttasliktan_cikarma: #d6304a;
+  --c-sozlesmeli: #8b5cf6;
 }
 [data-theme="dark"] {
   --bg: #0e1217;
@@ -95,7 +96,7 @@ main { max-width: 1180px; margin: 0 auto; padding: clamp(16px, 3vw, 32px); }
 
 /* ---------- Stat cards ---------- */
 .stat-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(5, 1fr);
   gap: 14px; margin-bottom: 22px;
 }
 .stat-card {
