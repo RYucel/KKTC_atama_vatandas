@@ -440,6 +440,25 @@ def fetch_year(year, session, use_cache=True):
     return home, "home"
 
 
+# A year whose fresh scrape yields fewer than this fraction of the previously
+# published decisions is treated as a failed/truncated fetch.
+MIN_KEEP_RATIO = 0.9
+
+
+def load_previous_records():
+    """Return {year: [records]} from the currently published decisions.json."""
+    path = os.path.join(DATA_DIR, "decisions.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, ValueError):
+        return {}
+    by_year = {}
+    for r in data:
+        by_year.setdefault(r["y"], []).append(r)
+    return by_year
+
+
 def main():
     argv = sys.argv[1:]
     use_cache = not any(a in ("--refresh", "--no-cache") for a in argv)
@@ -457,16 +476,30 @@ def main():
         "years": {},
     }
 
+    # Previously published data, per year. If the site is down or a year's
+    # page comes back empty/truncated, we keep the old records for that year
+    # instead of silently dropping it from the published dataset.
+    previous = load_previous_records()
+    fresh_years = 0
+
     for year in years:
+        old = previous.get(year, [])
         try:
             html, source = fetch_year(year, session, use_cache=use_cache)
+            recs = parse_year(year, html, restrict_year=(source == "home"))
         except Exception as e:  # noqa: BLE001
             print(f"  ! {year}: fetch failed: {e}")
-            continue
-        recs = parse_year(year, html, restrict_year=(source == "home"))
-        if not recs:
-            print(f"  {year}: no decisions found (skipped)")
-            continue
+            recs, source = [], "error"
+        if len(recs) < len(old) * MIN_KEEP_RATIO:
+            if old:
+                print(f"  ! {year}: got {len(recs)} decisions, previously "
+                      f"{len(old)}; keeping previous data")
+                recs, source = old, "previous"
+            elif not recs:
+                print(f"  {year}: no decisions found (skipped)")
+                continue
+        else:
+            fresh_years += 1
         all_records.extend(recs)
 
         issues = {r["no"] for r in recs}
@@ -483,6 +516,12 @@ def main():
         print(f"  {year}{tag}: {len(issues):>3} issues, {len(recs):>5} decisions, "
               + ", ".join(f"{c}={counts[c]}" for c in CATEGORIES))
         time.sleep(0.3)
+
+    if fresh_years == 0:
+        # Nothing could be fetched (site down / blocked): leave the published
+        # files untouched and fail loudly so the workflow run shows red.
+        print("\nERROR: no year could be fetched; existing data left unchanged")
+        sys.exit(1)
 
     # Recover dates missing from the listings via the issue PDFs.
     backfill_dates(all_records, session)
