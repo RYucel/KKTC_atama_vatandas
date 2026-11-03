@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   actions: write
+  issues: write
 
 concurrency:
   group: update-data
@@ -33,9 +34,41 @@ jobs:
       - name: Cross-check against mevzuatkibris.com RSS
         # Yalnızca rapor üretir (Actions özetinde görünür); hiçbir zaman
         # güncellemeyi bozmaz.
+        id: crosscheck
         if: always()
         continue-on-error: true
         run: python crosscheck.py
+
+      - name: Open / update / close cross-check issue
+        # Fark varsa "crosscheck" etiketli tek bir issue açar (aynı farklar
+        # için tekrar yorum atmaz); farklar kapanınca issue'yu kapatır.
+        if: always() && steps.crosscheck.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DIFF: ${{ steps.crosscheck.outputs.diff }}
+          FP: ${{ steps.crosscheck.outputs.fingerprint }}
+          OWNER: ${{ github.repository_owner }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          num=$(gh issue list --label crosscheck --state open --json number -q '.[0].number')
+          if [ "$DIFF" = "true" ]; then
+            printf '\n@%s · [Çalıştırma kaydı](%s)\n' "$OWNER" "$RUN_URL" >> crosscheck.md
+            if [ -z "$num" ]; then
+              gh label create crosscheck --color d93f0b \
+                --description "mevzuatkibris.com çapraz kontrol farkı" 2>/dev/null || true
+              gh issue create --label crosscheck \
+                --title "Çapraz kontrol: mevzuatkibris.com ile fark bulundu" \
+                --body-file crosscheck.md
+            elif ! gh issue view "$num" --json body,comments \
+                   -q '.body, .comments[].body' | grep -q "crosscheck-fp:$FP"; then
+              gh issue comment "$num" --body-file crosscheck.md
+            else
+              echo "Aynı farklar zaten #$num içinde bildirildi."
+            fi
+          elif [ -n "$num" ]; then
+            gh issue close "$num" --comment "Fark kalmadı, kapatılıyor. [Çalıştırma kaydı]($RUN_URL)"
+          fi
 
       - name: Commit & push if data changed
         env:
