@@ -81,7 +81,17 @@ jobs:
           # gerçek veri (decisions.json) değiştiyse commit at.
           if ! git diff --cached --quiet -- web/data/decisions.json cache/pdf_dates.json; then
             git commit -m "data: otomatik veri güncellemesi ($(date -u +%Y-%m-%d))"
-            git push
+            # GitHub ara sıra push'u geçici 5xx ile reddediyor; birkaç kez
+            # (araya giren commit'ler için rebase ederek) yeniden dene.
+            for i in 1 2 3 4; do
+              git push && break
+              if [ "$i" -eq 4 ]; then
+                echo "::error::git push 4 denemede de başarısız oldu"
+                exit 1
+              fi
+              sleep $((i * 15))
+              git pull --rebase origin main
+            done
             # GITHUB_TOKEN ile yapılan push, push-tetikli workflow'ları
             # çalıştırmaz; Pages dağıtımını elle tetikle.
             gh workflow run deploy-pages.yml --ref main
