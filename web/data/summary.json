@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12T10:41:15Z",
+  "generated": "2026-11-13T10:35:45Z",
   "source": "https://basimevi.gov.ct.tr",
   "categories": [
     "atama",
@@ -230,8 +230,8 @@
       }
     },
     "2026": {
-      "issues": 218,
-      "decisions": 4339,
+      "issues": 219,
+      "decisions": 4342,
       "counts": {
         "atama": 76,
         "gorevden_alma": 45,
